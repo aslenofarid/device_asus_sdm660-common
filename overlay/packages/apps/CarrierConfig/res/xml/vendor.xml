@@ -1155,6 +1155,8 @@
         <boolean name="vilte_data_is_metered_bool" value="false" />
         <boolean name="config_enable_video_crbt" value="true" />
         <boolean name="config_disable_clir_over_ut" value="true" />
+        <boolean name="allow_add_call_during_video_call" value="false" />
+        <boolean name="allow_holding_video_call" value="false" />
     </carrier_config>
     <carrier_config mcc="460" mnc="02">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -1285,6 +1287,8 @@
         <boolean name="vilte_data_is_metered_bool" value="false" />
         <boolean name="config_enable_video_crbt" value="true" />
         <boolean name="config_disable_clir_over_ut" value="true" />
+        <boolean name="allow_add_call_during_video_call" value="false" />
+        <boolean name="allow_holding_video_call" value="false" />
     </carrier_config>
     <carrier_config mcc="460" mnc="07">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -1400,6 +1404,8 @@
         <boolean name="vilte_data_is_metered_bool" value="false" />
         <boolean name="config_enable_video_crbt" value="true" />
         <boolean name="config_disable_clir_over_ut" value="true" />
+        <boolean name="allow_add_call_during_video_call" value="false" />
+        <boolean name="allow_holding_video_call" value="false" />
     </carrier_config>
     <carrier_config mcc="460" mnc="10">
         <boolean name="allow_emergency_numbers_in_call_log_bool" value="true" />
