@@ -1,6 +1,12 @@
 # Camera
 persist.vendor.camera.hdring                  u:object_r:vendor_camera_prop:s0
 persist.vendor.camera.pickres.prop_hdr        u:object_r:vendor_camera_prop:s0
+persist.vendor.camera.bokeh.dumpimg           u:object_r:vendor_camera_prop:s0
+persist.vendor.camera.HAL3.enabled            u:object_r:vendor_camera_prop:s0
+vendor.debug.camera.prop_picselfie            u:object_r:vendor_camera_prop:s0
+vendor.debug.camera.prop_bokeh                u:object_r:vendor_camera_prop:s0
+vendor.debug.camera.prop_hdr                  u:object_r:vendor_camera_prop:s0
+vendor.debug.camera.prop_dis                  u:object_r:vendor_camera_prop:s0
 
 # Fingerprint
 property.cdfinger.enablesave                  u:object_r:vendor_fingerprint_prop:s0
