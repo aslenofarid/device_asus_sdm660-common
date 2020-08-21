@@ -99,8 +99,21 @@ static void workaround_snet_properties() {
   chmod("/sys/fs/selinux/policy", 0440);
 }
 
+void set_avoid_gfxaccel_config() {
+    struct sysinfo sys;
+    sysinfo(&sys);
+
+    if (sys.totalram <= 3072ull * 1024 * 1024) {
+        // Reduce memory footprint
+        SetProperty("ro.config.avoid_gfx_accel", "true");
+    }
+}
+
+
 void vendor_load_properties()
 {
+    set_avoid_gfxaccel_config();
+
    // Safetynet Workaround
     property_override("ro.build.description", "walleye-user 8.1.0 OPM1.171019.011 4448085 release-keys");
     property_override("ro.build.fingerprint", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
