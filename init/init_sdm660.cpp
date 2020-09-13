@@ -42,17 +42,16 @@
 #include "property_service.h"
 
 using android::base::GetProperty;
-using android::init::property_set;
+using std::string;
 
-void property_override(char const prop[], char const value[])
+void property_override(string prop, string value)
 {
-    prop_info *pi;
+    auto pi = (prop_info*) __system_property_find(prop.c_str());
 
-    pi = (prop_info*) __system_property_find(prop);
-    if (pi)
-        __system_property_update(pi, value, strlen(value));
+    if (pi != nullptr)
+        __system_property_update(pi, value.c_str(), value.size());
     else
-        __system_property_add(prop, strlen(prop), value, strlen(value));
+        __system_property_add(prop.c_str(), prop.size(), value.c_str(), value.size());
 }
 
 void set_avoid_gfxaccel_config() {
@@ -61,7 +60,7 @@ void set_avoid_gfxaccel_config() {
 
     if (sys.totalram <= 3072ull * 1024 * 1024) {
         // Reduce memory footprint
-        property_set("ro.config.avoid_gfx_accel", "true");
+        property_override("ro.config.avoid_gfx_accel", "true");
     }
 }
 
@@ -79,22 +78,15 @@ void NFC_check()
         property_override("ro.hq.support.nfc", "0");
 }
 
-static void set_build_fingerprint(const char *fingerprint){
-    property_override("ro.bootimage.build.fingerprint", fingerprint);
-    property_override("ro.system.build.fingerprint", fingerprint);
-    property_override("ro.build.fingerprint", fingerprint);
-    property_override("ro.vendor.build.fingerprint", fingerprint);
-}
-
-static void set_build_description(const char *description){
-    property_override("ro.build.description", description);
-}
-
 void vendor_load_properties()
 {
     set_avoid_gfxaccel_config();
     NFC_check();
 
-    set_build_fingerprint("google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
-    set_build_description("walleye-user 8.1.0 OPM1.171019.011 4448085 release-keys");
+    property_override("ro.bootimage.build.fingerprint", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
+    property_override("ro.system.build.fingerprint", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
+    property_override("ro.build.fingerprint", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
+    property_override("ro.vendor.build.fingerprint", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
+    property_override("ro.build.description", "walleye-user 8.1.0 OPM1.171019.011 4448085 release-keys");
+
 }
