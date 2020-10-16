@@ -173,9 +173,6 @@ PRODUCT_PACKAGES += \
     qcom.fmradio \
     qcom.fmradio.xml
 
-PRODUCT_BOOT_JARS += \
-    qcom.fmradio
-
 # Gboard side padding
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.com.google.ime.kb_pad_port_l=4 \
