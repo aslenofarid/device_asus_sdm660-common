@@ -30,6 +30,9 @@ vendor.display.disable_skip_validate=1
 persist.sys.fingerauto=1
 persist.sys.iscdfinger_998eas=1
 
+# FUSE passthrough
+persist.sys.fuse.passthrough.enable=true
+
 # GPS
 persist.vendor.overlay.izat.optin=rro
 
