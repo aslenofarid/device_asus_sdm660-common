@@ -5988,3 +5988,8 @@ setprop persist.vendor.mmi.misc_dev_path $real_path
 	  echo "schedutil" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
 	  setprop sys.use_fifo_ui 1
 	fi
+
+# Workaround for TWRP splash stuck issue with android12
+   rm -rf data/system/storage.xml
+   touch data/system/storage.xml
+   chattr +I data/system/storage.xml
