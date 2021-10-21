@@ -35,7 +35,7 @@ persist.vendor.overlay.izat.optin=rro
 
 # Graphics
 persist.demo.hdmirotationlock=false
-persist.hwc.enable_vds=1
+persist.hwc.enable_vds=0
 sdm.debug.disable_skip_validate=1
 
 # Media
