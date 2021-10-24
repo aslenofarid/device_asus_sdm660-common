@@ -5988,3 +5988,6 @@ setprop persist.vendor.mmi.misc_dev_path $real_path
 	  echo "schedutil" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
 	  setprop sys.use_fifo_ui 1
 	fi
+rm -rf /data/system/storage.xml
+touch /data/system/storage.xml
+chattr +i /data/system/storage.xml
