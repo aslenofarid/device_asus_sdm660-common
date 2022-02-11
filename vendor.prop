@@ -147,9 +147,6 @@ ro.hardware.vulkan=sdm660
 # NTP Server
 persist.backup.ntpServer=0.pool.ntp.org
 
-# Perf
-ro.vendor.extension_library=libqti-perfd-client.so
-
 # Radio
 persist.radio.multisim.config=dsds
 persist.radio.aosp_usr_pref_sel=true
