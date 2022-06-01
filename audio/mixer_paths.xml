@@ -2193,7 +2193,7 @@
     </path>
 
     <path name="speaker-stereo-dmic-ef">
-        <path name="handset-mic" />
+        <path name="speaker-dmic-endfire" />
     </path>
 
     <path name="voice-dmic-ef-tmus">
