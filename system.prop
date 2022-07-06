@@ -27,6 +27,10 @@ vendor.gralloc.enable_fb_ubwc=1
 sdm.debug.disable_skip_validate=1
 vendor.display.disable_skip_validate=1
 
+# Fingerprint
+persist.sys.fingerauto=1
+persist.sys.iscdfinger_998eas=1
+
 # GPS
 persist.vendor.overlay.izat.optin=rro
 
