@@ -18,8 +18,8 @@
 
 from hashlib import sha1
 
-device='msm8998-common'
-vendor='xiaomi'
+device='sdm660-common'
+vendor='asus'
 
 lines = [ line for line in open('proprietary-files.txt', 'r') ]
 vendorPath = '../../../vendor/' + vendor + '/' + device + '/proprietary'
