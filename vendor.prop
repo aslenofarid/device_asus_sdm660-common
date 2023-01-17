@@ -134,6 +134,7 @@ dalvik.vm.heapmaxfree=8m
 # Display
 debug.hwui.use_buffer_age=false
 debug.sf.auto_latch_unsignaled=false
+debug.sf.enable_egl_image_tracker=1
 debug.sf.enable_hwc_vds=1
 debug.sf.hw=1
 debug.sf.recomputecrop=0
