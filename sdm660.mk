@@ -282,11 +282,15 @@ PRODUCT_PACKAGES += \
     libstagefrighthw
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-pa
-
-PRODUCT_ENFORCE_RRO_TARGETS := *
+PRODUCT_PACKAGES += \
+    CarrierConfigResAsus \
+    CellBroadcastReceiverResAsus \
+    FrameworksResAsus \
+    SettingsResAsus \
+    SystemUIResAsus \
+    TelephonyResAsus \
+    TetheringConfigOverlay \
+    WifiOverlay
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -468,8 +472,6 @@ PRODUCT_PACKAGES += \
     hostapd \
     libwifi-hal-qcom \
     libwpa_client \
-    TetheringConfigOverlay \
-    WifiOverlay \
     wpa_supplicant \
     wpa_supplicant.conf
 
