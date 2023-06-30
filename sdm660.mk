@@ -6,7 +6,7 @@
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/asus/sdm660-common/sdm660-common-vendor.mk)
- 
+
 # Disable APEX Compression
 PRODUCT_COMPRESSED_APEX := false
 
@@ -396,20 +396,25 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.qcom.post_boot.sh \
-    init.qcom.sh \
-    init.qcom.usb.sh \
-    init.qti.dcvs.sh
+    init.qti.dcvs.sh \
+    init.qcom.sh
 
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.msm.usb.configfs.rc \
     init.qcom.asus.rc \
     init.qcom.rc \
-    init.qcom.usb.rc \
     init.recovery.qcom.rc \
     init.target.rc \
     init.uclamp.rc \
     ueventd.qcom.rc
+
+# Ramdisk-USB
+PRODUCT_PACKAGES += \
+    init.qcom.usb.rc \
+    init.qcom.usb.sh
+
+PRODUCT_SOONG_NAMESPACES += \
+    vendor/qcom/opensource/usb/etc
 
 # Screen Recorder
 PRODUCT_PACKAGES += \
