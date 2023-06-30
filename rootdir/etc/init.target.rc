@@ -27,9 +27,6 @@
 #
 #
 
-on early-init
-    write /proc/sys/kernel/sched_boost 1
-
 on init
     # Setup permission for Power HAL
     chown system system /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
@@ -106,6 +103,12 @@ on init
     # Report max frequency to unity tasks.
     write /proc/sys/kernel/sched_lib_name "UnityMain,libunity.so"
     write /proc/sys/kernel/sched_lib_mask_force 255
+    
+on early-boot
+    chown system system /mnt/vendor/persist/sensors
+    chown system system /mnt/vendor/persist/sensors/sns.reg
+    chown system system /mnt/vendor/persist/sensors/sensors_settings
+    chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
 
 on boot
     start vendor.rmt_storage
@@ -113,9 +116,8 @@ on boot
     write /dev/cpuset/top-app/cpus 0-7
     write /dev/cpuset/foreground/cpus 0-7
     write /dev/cpuset/foreground/boost/cpus 0-7
-    write /dev/cpuset/background/cpus 0-1
-    write /dev/cpuset/system-background/cpus 0-3
-    write /dev/cpuset/restricted/cpus 0-7
+    write /dev/cpuset/background/cpus 0-7
+    write /dev/cpuset/system-background/cpus 0-7
 
     # Wifi firmware reload path
     chown wifi wifi /sys/module/wlan/parameters/fwpath
@@ -143,13 +145,11 @@ service vendor.per_mgr /system/vendor/bin/pm-service
     user system
     group system
     ioprio rt 4
-    task_profiles ServiceCapacityLow
 
 service vendor.per_proxy /system/vendor/bin/pm-proxy
     class core
     user system
     group system
-    task_profiles ServiceCapacityLow
     disabled
 
 on property:init.svc.vendor.per_mgr=running
@@ -183,12 +183,21 @@ service vendor.cdsprpcd /vendor/bin/cdsprpcd
 service vendor.pd_mapper /system/vendor/bin/pd-mapper
      class core
 
+service dcvs-sh /vendor/bin/init.qti.dcvs.sh
+    class late_start
+    user root
+    group root system
+    disabled
+    oneshot
+
+on property:vendor.dcvs.prop=1
+   start dcvs-sh
+
 service ppd /system/vendor/bin/mm-pp-dpps
     class late_start
     user system
     group system graphics
     socket pps stream 0660 system system
-    task_profiles ServiceCapacityLow
     disabled
 
 on property:init.svc.surfaceflinger=stopped
@@ -228,4 +237,3 @@ service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
      class main
      user root
      group system wakelock
-     task_profiles ServiceCapacityLow
