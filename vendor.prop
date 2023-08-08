@@ -178,6 +178,9 @@ ro.crypto.volume.filenames_mode=aes-256-cts
 # NTP Server
 persist.backup.ntpServer=0.pool.ntp.org
 
+# Perf
+ro.vendor.perf.scroll_opt=true
+
 # Radio
 persist.radio.multisim.config=dsds
 persist.radio.aosp_usr_pref_sel=true
