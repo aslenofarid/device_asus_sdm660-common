@@ -95,6 +95,6 @@ void vendor_load_properties()
     set_avoid_gfxaccel_config();
     NFC_check();
 
-    set_build_fingerprint("google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
-    set_build_description("walleye-user 8.1.0 OPM1.171019.011 4448085 release-keys");
+    set_build_fingerprint("asus/ASUS_X00TD/ASUS_X00TD:10/QKQ1/17.2017.2012.438-20201203:user/release-keys");
+    set_build_description("sdm660_64-user 10 QKQ1 72 release-keys");
 }
