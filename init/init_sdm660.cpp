@@ -79,22 +79,8 @@ void NFC_check()
         property_override("ro.hq.support.nfc", "0");
 }
 
-static void set_build_fingerprint(const char *fingerprint){
-    property_override("ro.bootimage.build.fingerprint", fingerprint);
-    property_override("ro.system.build.fingerprint", fingerprint);
-    property_override("ro.build.fingerprint", fingerprint);
-    property_override("ro.vendor.build.fingerprint", fingerprint);
-}
-
-static void set_build_description(const char *description){
-    property_override("ro.build.description", description);
-}
-
 void vendor_load_properties()
 {
     set_avoid_gfxaccel_config();
     NFC_check();
-
-    set_build_fingerprint("asus/ASUS_X00TD/ASUS_X00TD:10/QKQ1/17.2017.2012.438-20201203:user/release-keys");
-    set_build_description("sdm660_64-user 10 QKQ1 72 release-keys");
 }
