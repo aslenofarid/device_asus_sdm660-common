@@ -136,9 +136,6 @@ ro.max.fling_velocity=20000
 vendor.hw.fm.init=0
 vendor.fm.a2dp.conc.disabled=false
 
-# FS-verity
-ro.apk_verity.mode=2
-
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
